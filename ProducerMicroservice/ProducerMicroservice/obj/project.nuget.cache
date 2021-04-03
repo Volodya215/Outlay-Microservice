@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "Pi4Qz80b5Br5o9oCgiAyfYfjGJWJAyERRf+5/6Ujyiexi15K4U3WTg05sax0fDpl2Mgd8wWUnQFJH9H5bX8ZUA==",
+  "success": true,
+  "projectFilePath": "D:\\Проекти\\Microservices Core\\Cards\\ProducerMicroservice\\ProducerMicroservice\\ProducerMicroservice.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\vovad\\.nuget\\packages\\confluent.kafka\\1.6.3\\confluent.kafka.1.6.3.nupkg.sha512",
+    "C:\\Users\\vovad\\.nuget\\packages\\librdkafka.redist\\1.6.1\\librdkafka.redist.1.6.1.nupkg.sha512",
+    "C:\\Users\\vovad\\.nuget\\packages\\system.memory\\4.5.0\\system.memory.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

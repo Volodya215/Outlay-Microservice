@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "TXnVtgdQPtB4bDA0dYro4+5uh5jg/wxPH8faQeAsiLJD9mZ12frdcA3hk6zsHuHYUk6DXejGI5VS+nqdC6PaaQ==",
+  "dgSpecHash": "wNaDJi8F1layyJe5pvr0bIUHxoTP/ak8CKrc/HpgwNNLzFpy4ZQ7ZtYrcwFnkFzwk+V4mv7Mu8z+OUGwRAJvNA==",
   "success": true,
   "projectFilePath": "D:\\Проекти\\Microservices Core\\Cards\\CardMicroservice\\CardMicroservice\\CardMicroservice.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\vovad\\.nuget\\packages\\confluent.kafka\\1.6.3\\confluent.kafka.1.6.3.nupkg.sha512",
+    "C:\\Users\\vovad\\.nuget\\packages\\librdkafka.redist\\1.6.1\\librdkafka.redist.1.6.1.nupkg.sha512",
     "C:\\Users\\vovad\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\vovad\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
     "C:\\Users\\vovad\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\3.1.0\\microsoft.aspnetcore.razor.language.3.1.0.nupkg.sha512",

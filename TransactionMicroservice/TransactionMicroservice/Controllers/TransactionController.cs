@@ -1,4 +1,5 @@
-﻿using CardMicroservice.UoW;
+﻿using CardMicroservice.Models;
+using CardMicroservice.UoW;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -18,34 +19,34 @@ namespace TransactionMicroservice.Controllers
             _unitOfWork = unitOfWork;
         }
 
-        [HttpGet("{id}", Name = "Get")]
-        public IActionResult Get(int id)
-        {
-            try
-            {
-                var transaction = _unitOfWork.Transactions.Get(id);
-                if (transaction == null)
-                    return new NotFoundResult();
+        //[HttpGet("{id}", Name = "Get")]
+        //public IActionResult Get(int id)
+        //{
+        //    try
+        //    {
+        //        var transaction = _unitOfWork.Transactions.Get(id);
+        //        if (transaction == null)
+        //            return new NotFoundResult();
 
-                return new OkObjectResult(transaction);
-            }
-            catch
-            {
-                return new BadRequestResult();
-            }
-        }
+        //        return new OkObjectResult(transaction);
+        //    }
+        //    catch
+        //    {
+        //        return new BadRequestResult();
+        //    }
+        //}
 
-        [Route("/userscard")]
+        [Route("/cardTransaction")]
         [HttpGet]
-        public IActionResult Get([FromBody] string login)
+        public ActionResult<CardTransaction> Get([FromBody]int cardid)
         {
             try
             {
-                var cards = _unitOfWork.Transactions.Find(x => x.User.Login == login);
-                if (cards == null)
+                var transactions = _unitOfWork.Transactions.Find(x => x.Card.Id == cardid);
+                if (transactions == null)
                     return new NotFoundResult();
 
-                return new OkObjectResult(cards);
+                return new OkObjectResult(transactions);
             }
             catch
             {

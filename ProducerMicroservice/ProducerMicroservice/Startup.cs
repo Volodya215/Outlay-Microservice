@@ -1,11 +1,7 @@
-using CardMicroservice.DBContexts;
-using CardMicroservice.Models;
-using CardMicroservice.UoW;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -14,9 +10,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TransactionMicroservice.Handlers;
 
-namespace TransactionMicroservice
+namespace ProducerMicroservice
 {
     public class Startup
     {
@@ -31,15 +26,6 @@ namespace TransactionMicroservice
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddSingleton<IHostedService, KafkaConsumerHandler>();
-
-
-            services.AddDbContext<MyDbContext>(options =>
-            {
-                options.UseSqlServer(Configuration.GetConnectionString("OutlayDB"));
-            });
-
-            services.AddTransient<IUnitOfWork, UnitOfWork>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,11 +46,6 @@ namespace TransactionMicroservice
             {
                 endpoints.MapControllers();
             });
-
-            //using var serviceScope = app.ApplicationServices.CreateScope();
-            //var context = serviceScope.ServiceProvider.GetService<MyDbContext>();
-
-            //DbInitializer.Seed(context);
         }
     }
 }

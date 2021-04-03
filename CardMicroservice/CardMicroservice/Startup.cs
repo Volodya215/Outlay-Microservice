@@ -1,4 +1,5 @@
 using CardMicroservice.DBContexts;
+using CardMicroservice.Handlers;
 using CardMicroservice.Models;
 using CardMicroservice.UoW;
 using Microsoft.AspNetCore.Builder;
@@ -30,6 +31,7 @@ namespace CardMicroservice
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddSingleton<IHostedService, KafkaConsumerHandler>();
             // services.AddEntityFrameworkSqlServer().AddDbContext<MyDbContext>(x => x.UseSqlServer(Configuration.GetConnectionString("OutlayDB")));
 
             //services.AddDbContext<MyDbContext>(options =>
