@@ -36,13 +36,31 @@ namespace TransactionMicroservice.Controllers
         //    }
         //}
 
-        [Route("/cardTransaction")]
+        [Route("/cardAllTransaction")]
         [HttpGet]
-        public ActionResult<CardTransaction> Get([FromBody]int cardid)
+        public ActionResult<CardTransaction> Get([FromBody]int cardId)
         {
             try
             {
-                var transactions = _unitOfWork.Transactions.Find(x => x.Card.Id == cardid);
+                var transactions = _unitOfWork.Transactions.Find(x => x.Card.Id == cardId);
+                if (transactions == null)
+                    return new NotFoundResult();
+
+                return new OkObjectResult(transactions);
+            }
+            catch
+            {
+                return new BadRequestResult();
+            }
+        }
+
+        [Route("/cardTransactionByType")]
+        [HttpGet]
+        public ActionResult<CardTransaction> Get([FromBody]int cardId, [FromBody] int type)
+        {
+            try
+            {
+                var transactions = _unitOfWork.Transactions.Find(x => x.Card.Id == cardId && x.Type == (TransactionType)type);
                 if (transactions == null)
                     return new NotFoundResult();
 

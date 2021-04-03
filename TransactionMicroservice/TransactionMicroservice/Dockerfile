@@ -7,10 +7,9 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY ["TransactionMicroservice/TransactionMicroservice.csproj", "TransactionMicroservice/"]
-RUN dotnet restore "TransactionMicroservice/TransactionMicroservice.csproj"
+COPY ["TransactionMicroservice.csproj", "./"]
+RUN dotnet restore "TransactionMicroservice.csproj"
 COPY . .
-WORKDIR "/src/TransactionMicroservice"
 RUN dotnet build "TransactionMicroservice.csproj" -c Release -o /app/build
 
 FROM build AS publish
