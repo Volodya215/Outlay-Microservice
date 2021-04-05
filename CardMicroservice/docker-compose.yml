@@ -1,7 +1,7 @@
 version: '3'
 services: 
     ms-sql-server:
-        image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+        image: dockermicroserv/microservdatabase:latest
         environment:
             ACCEPT_EULA: "Y"
             SA_PASSWORD: "Pa55w0rd2019"
@@ -9,7 +9,7 @@ services:
         ports:
           - "1433:1433"
     card-api:
-        build: CardMicroservice/.    
+        image: dockermicroserv/cardmicroservice:latest
         environment:
             DBServer: "ms-sql-server"
         ports:
